@@ -2,4 +2,10 @@
 
 body {
   background-color: $lightGray;
+
+  @include breakpoint(medium) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

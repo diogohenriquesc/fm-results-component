@@ -3,7 +3,15 @@
 .component {
 	background-color: $white;
 
+	@include breakpoint(medium) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: rem(32);
+	}
+
 	&__result {
+		flex: 1;
 		background: linear-gradient(180deg, #7755ff 0%, #6943ff 0.01%, #2f2ce9 100%);
 		border-radius: 0 0 rem(32) rem(32);
 		padding: rem(24) rem(58) rem(40);
@@ -11,7 +19,8 @@
 		text-align: center;
 
 		@include breakpoint(medium) {
-			padding: rem(38) rem(54) rem(46);
+			padding: rem(38) rem(54) rem(55);
+			border-radius: rem(32);
 		}
 
 		&-title {
@@ -29,27 +38,135 @@
 			margin: 0 auto;
 			border-radius: 50%;
 			font-weight: 700;
+				color: hsla(241, 100%, 89%, 50%);
+
 			margin-bottom: rem(24);
 
 			@include breakpoint(medium) {
 				padding: rem(55) rem(60) rem(46);
 				margin-bottom: rem(28);
 			}
-
+			
 			span {
 				display: block;
-        color: $white;
+				color: $white;
+				margin-bottom: rem(4);
 			}
 		}
 
-    &-message {
-      color: $white;
-      font-weight: 700;
-      margin-bottom: rem(8);
+		&-message {
+			color: $white;
+			font-weight: 700;
+			margin-bottom: rem(8);
 
-      @include breakpoint(medium) {
-        margin-bottom: rem(14);
-      }
-    }
+			@include breakpoint(medium) {
+				margin-bottom: rem(14);
+			}
+		}
+	}
+
+	&__summary {
+		flex: 1;
+		padding: rem(24) rem(30) rem(30);
+
+		@include breakpoint(medium) {
+			padding: rem(30) rem(40) rem(42);
+		}
+
+		&-title {
+			color: $darkNavy;
+			margin-bottom: rem(24);
+
+			@include breakpoint(medium) {
+				margin-bottom: rem(28);
+			}
+		}
+
+		&-items {
+			display: flex;
+			flex-direction: column;
+			gap: rem(16);
+			margin-bottom: rem(24);
+
+			@include breakpoint(medium) {
+				margin-bottom: rem(40);
+			}
+		}
+
+		&-item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: rem(17);
+			border-radius: rem(12);
+
+			&.item-reaction {
+				background-color: $lightRed;
+
+				.component__summary-item-type {
+					color: $red;
+				}
+			}
+
+			&.item-memory {
+				background-color: $lightYellow;
+
+				.component__summary-item-type {
+					color: $yellow;
+				}
+			}
+
+			&.item-verbal {
+				background-color: $lightGreen;
+
+				.component__summary-item-type {
+					color: $green;
+				}
+			}
+
+			&.item-visual {
+				background-color: $lightCobaltBlue;
+
+				.component__summary-item-type {
+					color: $cobaltBlue;
+				}
+			}
+		}
+
+		&-item-type {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: rem(12);
+		}
+
+		&-item-value {
+			font-weight: 700;
+			color: hsla(224, 30%, 27%, 60%);
+
+			span {
+				display: inline-block;
+				color: hsl(224, 30%, 27%);
+				margin-right: rem(8);
+			}
+		}
+
+		&-button {
+			display: block;
+			background: $darkNavy;
+			color: $white;
+			text-align: center;
+			font-weight: 700;
+			padding: rem(17);
+			border-radius: rem(128);
+			transition: all 200ms ease-in-out;
+
+			&:hover {
+				background: linear-gradient(180deg, #7755FF 0%, #6943FF 0.01%, #2F2CE9 100%);
+
+			}
+		}
+
+
 	}
 }

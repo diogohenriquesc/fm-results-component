@@ -46,7 +46,7 @@
 				padding: rem(55) rem(60) rem(46);
 				margin-bottom: rem(28);
 			}
-			
+
 			span {
 				display: block;
 				color: $white;
@@ -70,7 +70,7 @@
 		padding: rem(24) rem(30) rem(30);
 
 		@include breakpoint(medium) {
-			padding: rem(30) rem(40) rem(42);
+			padding: rem(38) rem(40) rem(46);
 		}
 
 		&-title {
@@ -97,7 +97,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: rem(17);
+			padding: rem(16);
 			border-radius: rem(12);
 
 			&.item-reaction {

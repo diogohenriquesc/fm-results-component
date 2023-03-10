@@ -12,10 +12,10 @@
 
 	&__result {
 		flex: 1;
-		background: linear-gradient(180deg, #7755ff 0%, #6943ff 0.01%, #2f2ce9 100%);
+		background: linear-gradient(180deg, $purple 0%, $purple 0.01%, $lightRoyalBlue 100%);
 		border-radius: 0 0 rem(32) rem(32);
 		padding: rem(24) rem(58) rem(40);
-		color: $lightPurple;
+		color: $lavender;
 		text-align: center;
 
 		@include breakpoint(medium) {
@@ -32,13 +32,13 @@
 		}
 
 		&-value {
-			background: linear-gradient(180deg, #4d21c9 0%, rgba(37, 33, 201, 0) 100%, rgba(37, 33, 201, 0) 100%);
+			background: linear-gradient(180deg, hsl(256, 72%, 46%) 0%, hsla(241, 72%, 46%, 0) 100%, hsla(241, 72%, 46%, 0) 100%);
 			padding: rem(25) rem(38) rem(22);
 			width: fit-content;
 			margin: 0 auto;
 			border-radius: 50%;
 			font-weight: 700;
-				color: hsla(241, 100%, 89%, 50%);
+			color: $lightLavender;
 
 			margin-bottom: rem(24);
 
@@ -142,16 +142,17 @@
 
 		&-item-value {
 			font-weight: 700;
-			color: hsla(224, 30%, 27%, 60%);
+			color: $lightDarkNavy;
 
 			span {
 				display: inline-block;
-				color: hsl(224, 30%, 27%);
+				color: $darkNavy;
 				margin-right: rem(8);
 			}
 		}
 
 		&-button {
+			position: relative;
 			display: block;
 			background: $darkNavy;
 			color: $white;
@@ -159,14 +160,26 @@
 			font-weight: 700;
 			padding: rem(17);
 			border-radius: rem(128);
-			transition: all 200ms ease-in-out;
+			overflow: hidden;
+			z-index: 99;
+			transition: opacity 200ms ease-in-out;
 
-			&:hover {
-				background: linear-gradient(180deg, #7755FF 0%, #6943FF 0.01%, #2F2CE9 100%);
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(180deg, $purple 0%, $purple 0.01%, $lightRoyalBlue 100%);
+				opacity: 0;
+				z-index: -1;
+				transition: all 200ms ease-in-out;
+			}
 
+			&:hover::before {
+				opacity: 1;
 			}
 		}
-
-
 	}
 }
